@@ -96,25 +96,98 @@ for (int i = 0; i < asciugatrici.Length; i++)
 
 Console.WriteLine();
 
-//visualizzo i dettagli di una lavatrice
-Console.WriteLine("scegli una lavatrice (da 0 a 4)");
-int lavatriceScelta = Convert.ToInt32(Console.ReadLine());
+bool continua = true;
 
-Console.WriteLine(lavatrici[lavatriceScelta].Detersivo + " ml rimasti");
-Console.WriteLine(lavatrici[lavatriceScelta].Ammorbidente + " ml rimasti");
-Console.WriteLine(lavatrici[lavatriceScelta].Gettoni + " gettoni");
-Console.WriteLine(lavatrici[lavatriceScelta].inUso);
-Console.WriteLine(lavatrici[lavatriceScelta].Tempo + " min");
+while (continua)
+{
+    Console.WriteLine("Seleziona la lavatrice/asciugatrice di cui vuoi vedere i dettagli: l/a seguito da 0/1/2/3/4. Scrivi 'esci' per terminare.");
+    string risposta = Console.ReadLine();
+    Console.WriteLine();
+
+    switch (risposta)
+    {
+        case "l0":
+            StampaDettagliL(0);
+            Console.WriteLine();
+            break;
+
+        case "l1":
+            StampaDettagliL(1);
+            Console.WriteLine();
+            break;
+
+        case "l2":
+            StampaDettagliL(2);
+            Console.WriteLine();
+            break;
+
+        case "l3":
+            StampaDettagliL(3);
+            Console.WriteLine();
+            break;
+
+        case "l4":
+            StampaDettagliL(4);
+            Console.WriteLine();
+            break;
+
+        case "a0":
+            StampaDettagliA(0);
+            Console.WriteLine();
+            break;
+
+        case "a1":
+            StampaDettagliA(1);
+            Console.WriteLine();
+            break;
+
+        case "a2":
+            StampaDettagliA(2);
+            Console.WriteLine();
+            break;
+
+        case "a3":
+            StampaDettagliA(3);
+            Console.WriteLine();
+            break;
+
+        case "a4":
+            StampaDettagliA(4);
+            Console.WriteLine();
+            break;
+
+        case "esci":
+            continua = false;
+            break;
+
+        default:
+            Console.WriteLine("non è un opzione contemplata");
+            break;
+    }
+
+}
+//visualizzo i dettagli di una lavatrice
+
+void StampaDettagliL(int scelta)
+{
+    Console.WriteLine(lavatrici[scelta].Detersivo + " ml rimasti");
+    Console.WriteLine(lavatrici[scelta].Ammorbidente + " ml rimasti");
+    Console.WriteLine(lavatrici[scelta].Gettoni + " gettoni");
+    Console.WriteLine(lavatrici[scelta].inUso);
+    Console.WriteLine(lavatrici[scelta].Tempo + " min");
+}
+
 
 Console.WriteLine();
 
 //visualizzo i dettagli di una asciugatrice
-Console.WriteLine("scegli un'asciugatrice (da 0 a 4)");
-int asciugatriceScelta = Convert.ToInt32(Console.ReadLine());
+void StampaDettagliA(int scelta)
+{
+    Console.WriteLine(asciugatrici[scelta].Gettoni + " gettoni");
+    Console.WriteLine(asciugatrici[scelta].inUso);
+    Console.WriteLine(asciugatrici[scelta].Tempo + " min");
+}
 
-Console.WriteLine(asciugatrici[asciugatriceScelta].Gettoni + " gettoni");
-Console.WriteLine(asciugatrici[asciugatriceScelta].inUso);
-Console.WriteLine(asciugatrici[asciugatriceScelta].Tempo + " min");
 
 Console.WriteLine();
 
