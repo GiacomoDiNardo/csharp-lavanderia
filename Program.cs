@@ -8,12 +8,12 @@ Asciugatrice[] asciugatrici = new Asciugatrice[5];
 
 for (int i = 0; i < lavatrici.Length; i++)
 {
-    lavatrici[i] = new Lavatrice();
+    lavatrici[i] = new Lavatrice(500, 1000, 0, 0);
 }
 
 for (int i = 0; i < asciugatrici.Length; i++)
 {
-    asciugatrici[i] = new Asciugatrice();
+    asciugatrici[i] = new Asciugatrice(0, 0);
 }
 
 //creo un numero casuale di lavaggi
@@ -173,7 +173,7 @@ void StampaDettagliL(int scelta)
     Console.WriteLine(lavatrici[scelta].Detersivo + " ml rimasti");
     Console.WriteLine(lavatrici[scelta].Ammorbidente + " ml rimasti");
     Console.WriteLine(lavatrici[scelta].Gettoni + " gettoni");
-    Console.WriteLine(lavatrici[scelta].inUso);
+    Console.WriteLine(lavatrici[scelta].InUso);
     Console.WriteLine(lavatrici[scelta].Tempo + " min");
 }
 
@@ -184,7 +184,7 @@ Console.WriteLine();
 void StampaDettagliA(int scelta)
 {
     Console.WriteLine(asciugatrici[scelta].Gettoni + " gettoni");
-    Console.WriteLine(asciugatrici[scelta].inUso);
+    Console.WriteLine(asciugatrici[scelta].InUso);
     Console.WriteLine(asciugatrici[scelta].Tempo + " min");
 }
 
@@ -200,168 +200,3 @@ for (int i = 0; i < lavatrici.Length; i++)
 }
 
 Console.WriteLine("L'incasso è: " + incasso * 0.5 + " euro");
-
-public class Lavatrice
-{
-    private int ammorbidente = 500;
-    private int detersivo = 1000;
-    public bool inUso = false;
-    private int gettoni;
-    private int tempo = 0;
-
-    public int Ammorbidente
-    {
-        get
-        {
-            return ammorbidente;
-        }
-
-        set
-        {
-            ammorbidente -= value;
-        }
-    }
-
-    public int Detersivo
-    {
-        get
-        {
-            return detersivo;
-        }
-        set
-        {
-            detersivo -= value;
-        }
-    }
-
-    public bool InUso { 
-        get
-        {
-            return inUso;
-        }
-
-        set
-        {
-
-            inUso = value;
-        }
-    }
-
-    public int Gettoni
-    {
-        get
-        {
-            return gettoni;
-        }
-
-        set
-        {
-            gettoni += value;
-        }
-    }
-
-    public int Tempo { 
-        get
-        {
-            return tempo;
-        }
-
-        set
-        {
-            tempo = 0;
-            if (InUso == true)
-            {
-                int tPass = new Random().Next(0, value);
-                tempo = value - tPass;
-            }
-        }
-    }
-
-    public void Rinfrescante()
-    {
-        this.Ammorbidente = 5;
-        this.Detersivo = 20;
-        this.Gettoni = 2;
-        this.Tempo = 20;
-        this.InUso = true;
-    }
-
-    public void Rinnovante()
-    {
-        this.Ammorbidente = 10;
-        this.Detersivo = 40;
-        this.Gettoni = 3;
-        this.Tempo = 40;
-        this.InUso = true;
-    }
-
-    public void Sgrassante()
-    {
-        this.Ammorbidente = 15;
-        this.Detersivo = 60;
-        this.Gettoni = 4;
-        this.Tempo = 60;
-        this.InUso = true;
-    }
-}
-
-public class Asciugatrice
-{
-    private int gettoni;
-    private int tempo;
-    public bool inUso;
-
-    public int Gettoni
-    {
-        get
-        {
-            return gettoni;
-        }
-
-        set
-        {
-            gettoni += value;
-        }
-    }
-
-    public int Tempo
-    {
-        get
-        {
-            return tempo;
-        }
-
-        set
-        {
-            int tPass = new Random().Next(0, value);
-            tempo = value - tPass;
-        }
-    }
-
-    public bool InUso
-    {
-        get
-        {
-            return inUso;
-        }
-
-        set
-        {
-            inUso = value;
-        }
-    }
-
-    public void Rapido ()
-    {
-        this.Gettoni = 2;
-        this.Tempo = 30;
-        this.InUso = true;
-    }
-
-    public void Intenso()
-    {
-        this.Gettoni = 4;
-        this.Tempo = 60;
-        this.InUso = true;
-    }
-}
