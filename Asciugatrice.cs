@@ -14,15 +14,18 @@ public class Asciugatrice : Macchinario
     ProgrammaAsciugatura rapido = new ProgrammaAsciugatura(2, 30, true);
     ProgrammaAsciugatura intenso = new ProgrammaAsciugatura(4, 60, true);
 
-    public ProgrammaAsciugatura Rapido()
+    public void Rapido()
     {
-        return rapido;
+        Gettoni += rapido.GettoniRichiesti;
+        Tempo = rapido.Tempo;
+        InUso = rapido.InUso;
     }
 
-    public ProgrammaAsciugatura Intenso()
+    public void Intenso()
     {
-        return intenso;
-
+        Gettoni += intenso.GettoniRichiesti;
+        Tempo = intenso.Tempo;
+        InUso = intenso.InUso;
     }
 
 }

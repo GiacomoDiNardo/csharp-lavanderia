@@ -14,4 +14,13 @@ public class ProgrammaLavaggio : Programma
         Tempo = tempo;
         InUso = inUso;
     }
+
+    //public void Rinfrescante(int ammorbidente, int detersivo, int gettoni, int tempo, bool inUso)
+    //{
+    //    ammorbidente -= AmmorbidenteUsato;
+    //    detersivo -= DetersivoUsato;
+    //    gettoni += GettoniRichiesti;
+    //    tempo = Tempo;
+    //    inUso = InUso;
+    //}
 }

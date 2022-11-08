@@ -20,20 +20,38 @@ public class Lavatrice : Macchinario
     ProgrammaLavaggio rinnovante = new ProgrammaLavaggio(3, 40, 10, 40, true);
     ProgrammaLavaggio sgrassante = new ProgrammaLavaggio(4, 60, 15, 60, true);
 
-    public ProgrammaLavaggio Rinfrescante()
+    public void Rinfrescante()
     {
-        return rinfrescante;
+        Ammorbidente -= rinfrescante.AmmorbidenteUsato;
+        Detersivo -= rinfrescante.DetersivoUsato;
+        Gettoni += rinfrescante.GettoniRichiesti;
+        Tempo = rinfrescante.Tempo;
+        InUso = rinfrescante.InUso;
     }
 
-    public ProgrammaLavaggio Rinnovante()
+    public void Rinnovante()
     {
-        return rinnovante;
+        Ammorbidente -= rinnovante.AmmorbidenteUsato;
+        Detersivo -= rinnovante.DetersivoUsato;
+        Gettoni += rinnovante.GettoniRichiesti;
+        Tempo = rinnovante.Tempo;
+        InUso = rinnovante.InUso;
 
     }
 
-    public ProgrammaLavaggio Sgrassante()
+    public void Sgrassante()
     {
-        return sgrassante;
-
+        Ammorbidente -= sgrassante.AmmorbidenteUsato;
+        Detersivo -= sgrassante.DetersivoUsato;
+        Gettoni += sgrassante.GettoniRichiesti;
+        Tempo = sgrassante.Tempo;
+        InUso = sgrassante.InUso;
     }
 }
+
+
+//TempoRimanente = new Random().Next(0, ProgrammaInEsecuzione.Durata + 1);
+//public void SimulaAvanzamento()
+//{
+//    TempoRimanente = new Random().Next(0, TempoRimanente);
+//}

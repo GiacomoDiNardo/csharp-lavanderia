@@ -16,6 +16,8 @@ for (int i = 0; i < asciugatrici.Length; i++)
     asciugatrici[i] = new Asciugatrice(0, 0);
 }
 
+
+
 //creo un numero casuale di lavaggi
 int lavaggi = new Random().Next(1, 100);
 
@@ -28,16 +30,19 @@ for (int i = 0; i < lavaggi; i++)
     //seleziono casualmente un programma
     int random = new Random().Next(0, 4);
 
-    if ( random == 1 )
+    if (random == 1)
     {
         lavatrici[lavatriceRandom].Rinfrescante();
-    } else if (random == 2 )
+    }
+    else if (random == 2)
     {
         lavatrici[lavatriceRandom].Rinnovante();
-    } else if ( random == 3 )
+    }
+    else if (random == 3)
     {
         lavatrici[lavatriceRandom].Sgrassante();
-    } else
+    }
+    else
     {
         lavatrici[lavatriceRandom].InUso = false;
         lavatrici[lavatriceRandom].Tempo = 0;
@@ -45,7 +50,7 @@ for (int i = 0; i < lavaggi; i++)
 }
 
 //verifico quali lavatrici sono attualmente in uso
-for ( int i = 0; i < lavatrici.Length; i++)
+for (int i = 0; i < lavatrici.Length; i++)
 {
     if (lavatrici[i].InUso == true)
     {
